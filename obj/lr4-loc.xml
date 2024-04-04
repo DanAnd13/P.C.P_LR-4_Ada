@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Locations >
+  <Project >
+    <file_marker column=" 1" line=" 1" >
+      <vfs_project>E:\Flash\P.C.P\LR4\LR4_Ada\lr4.gpr</vfs_project>
+      <vfs_file>E:\Flash\P.C.P\LR4\LR4_Ada\src\lr4.adb</vfs_file>
+    </file_marker>
+    <file_marker column=" 1" line=" 37" >
+      <vfs_project>E:\Flash\P.C.P\LR4\LR4_Ada\lr4.gpr</vfs_project>
+      <vfs_file>E:\Flash\P.C.P\LR4\LR4_Ada\src\lr4.adb</vfs_file>
+    </file_marker>
+    <file_marker current="true" column=" 12" line=" 10" >
+      <vfs_project>E:\Flash\P.C.P\LR4\LR4_Ada\lr4.gpr</vfs_project>
+      <vfs_file>E:\Flash\P.C.P\LR4\LR4_Ada\src\lr4.adb</vfs_file>
+    </file_marker>
+  </Project>
+</Locations>
