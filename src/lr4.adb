@@ -2,6 +2,22 @@ with Ada.Text_IO; use Ada.Text_IO;
 
 with GNAT.Semaphores; use GNAT.Semaphores;
 procedure Lr4 is
+   type Mas is array (1..5) of Integer;
+   arr : Mas := (0,0,0,0,0);
+   --arr : array(1..5) of Integer := (0,0,0,0,0);
+   function Max_Eating (arr: in Mas) return Integer is
+      max : Integer := arr(1);
+      id : Integer := 1;
+   begin
+      for I in 1..arr'Length loop
+         if max < arr(i) then
+            max := arr(i);
+            id := i;
+         end if;
+      end loop;
+      return id;
+   end Max_Eating;
+
 task type Phylosopher is
       entry Start(Id : Integer);
    end Phylosopher;
@@ -22,7 +38,9 @@ task type Phylosopher is
       for I in 1..2 loop
 
          Put_Line("Phylosopher " & Id'Img & " thinking " & I'Img & " time");
-
+         if id = Max_Eating(arr) then
+            Waiter.Release;
+         else
          Waiter.Seize;
          Forks(Id_Left_Fork).Seize;
 
@@ -33,7 +51,7 @@ task type Phylosopher is
          Put_Line("Phylosopher " & Id'Img & " took right fork");
 
          Put_Line("Phylosopher " & Id'Img & " eating" & I'Img & " time");
-
+         arr(id) := i;
          Waiter.Release;
          Forks(Id_Right_Fork).Release;
 
@@ -41,7 +59,8 @@ task type Phylosopher is
 
          Forks(Id_Left_Fork).Release;
 
-         Put_Line("Phylosopher " & Id'Img & " put left fork");
+            Put_Line("Phylosopher " & Id'Img & " put left fork");
+         end if;
       end loop;
    end Phylosopher;
 
